@@ -1,7 +1,7 @@
 package tdd.greeting;
 
-public class Greeter {
-    public String greet(String name) {
-        return "Hello, " + name;
+class Greeter {
+    String greet(String name) {
+        return String.format("Hello, %s", name);
     }
 }
