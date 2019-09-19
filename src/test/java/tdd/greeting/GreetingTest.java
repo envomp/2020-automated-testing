@@ -18,4 +18,15 @@ public class GreetingTest {
     }
 
 
+    @Test
+    public void should_return_hello_friend_when_not_given_a_name() {
+        String name = "";
+        Greeter greeter = new Greeter();
+
+        String greeting = greeter.greet(name);
+
+        assertThat(greeting).isEqualTo("Hello, my friend");
+    }
+
+
 }
