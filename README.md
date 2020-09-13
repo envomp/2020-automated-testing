@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a practice exercise for learning TDD by practicing TDD using [code kata](http://vinaikopp.com/2016/02/09/about_code_katas/). The idea behind TDD with code kata is simple: we are going to work on a single functionality but we will increase the complexity bit by bit while adding new tests in a TDD manner.  
+This is a **graded practice exercise** for learning TDD by practicing TDD using [code kata](http://vinaikopp.com/2016/02/09/about_code_katas/). The idea behind TDD with code kata is simple: we are going to work on a single functionality but we will increase the complexity bit by bit while adding new tests in a TDD manner.  
 
 ### Main points about this exercise  
 - **Deadline:** 2020-09-27 23:59
