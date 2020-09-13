@@ -1,5 +1,38 @@
 # Test Driven Development Practice
 
+## Introduction
+
+This is a practice exercise for learning TDD by practicing TDD using [code kata](http://vinaikopp.com/2016/02/09/about_code_katas/). The idea behind TDD with code kata is simple: we are going to work on a single functionality but we will increase the complexity bit by bit while adding new tests in a TDD manner.  
+
+### Main points about this exercise  
+- **Deadline:** 2020-09-27 23:59
+- **Mark:** You can get a total of **20 points** for this exercise, 4 per requirement.
+- The first 3 requirements are not marked... a warm up so to speak.
+- Fork the project into your own repo
+- Once you are done, **grant me access to your project with Developer rights**
+
+The flow should look something like this:
+1. Take next requirement
+1. Writes tests for that requirement
+1. **commit code**
+1. When you run the tests they should fail (because there is no implementation yet)
+1. Write enough code to make the tests pass
+1. **commit code**
+1. Refactor or make the code better (clean up unneeded things, make it more readable or maintanable, etc)
+1. **commit code** (don't force this one, if you see no improvement spots then move along)
+1. Go back to step 1.  
+
+The commit messages should look something like this:  
+```commandline
+Req 1: add tests
+Req 1: implement code for tests to pass
+Req 1: remove dummy code
+```  
+
+In other words I should see:  
+1. what requirement these commits belong to
+1. distinct commits for the TDD process: *<span style="color:red">Red</span>, <span style="color:green">Green</span>, <span style="color:blue">Refactor</span>*
+
 ## Code Kata: Greeting
 
 ### Requirement 1
