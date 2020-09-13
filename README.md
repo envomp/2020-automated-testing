@@ -33,6 +33,12 @@ In other words I should see:
 1. what requirement these commits belong to
 1. distinct commits for the TDD process: *<span style="color:red">Red</span>, <span style="color:green">Green</span>, <span style="color:blue">Refactor</span>*
 
+## Reference material
+- Look through week 3 slides (*week_3_clean_code_unit_testing_tdd*)
+- Watch or attend week 3 lecture LIVE
+    - lecture on tdd, clean code, unit testing
+    - guide for setting up development environment for practice excercise with Java
+
 ## Code Kata: Greeting
 
 ### Requirement 1
