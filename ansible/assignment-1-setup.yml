@@ -1,0 +1,30 @@
+--- # Script for setting up local workspace for assignment 1
+
+- hosts: localhost
+  connection: local
+  become: yes
+
+  roles:
+    - role: geerlingguy.java
+      java_packages:
+        - openjdk-11-jdk
+        - openjdk-11-jre
+    - role: ngetchell.vscode
+      vars:
+        vscode_extension:
+          - redhat.vscode-yaml
+          - visualstudioexptteam.vscodeintellicode
+          - esbenp.prettier-vscode
+          - vscoss.vscode-ansible
+          - ms-vscode-remote.remote-wsl
+          - vscjava.vscode-java-pack
+
+  tasks:
+  - name: install Git
+    apt:
+      name: git
+      state: latest
+  - name: install Maven
+    apt:
+      name: maven
+      state: latest
