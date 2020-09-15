@@ -8,7 +8,6 @@ This is a **graded practice exercise** for learning TDD by practicing TDD using 
 - **Deadline:** 2020-09-27 23:59
 - **Mark:** You can get a total of **20 points** for this exercise, 4 per requirement.
 - The first 3 requirements are not marked... a warm up so to speak.
-- Fork the project into your own repo
 - Once you are done, **grant me access to your project with Developer rights**
 
 The flow should look something like this:
