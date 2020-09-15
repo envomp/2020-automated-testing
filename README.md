@@ -50,7 +50,7 @@ should return the string ```"Hello, my friend."```.
 
 ### Requirement 3
 Handle shouting. When ```name``` is all uppercase, then the method should shout back to the user. 
-For example, when ```name``` is ```"JERRY"``` then the method should return the string ```"HELLO JERRY!"```.
+For example, when ```name``` is ```"JERRY"``` then the method should return the string ```"HELLO, JERRY!"```.
 
 ### Requirement 4
 Handle two names of input. When ```name``` is an array of two names (or, in languages that support 
