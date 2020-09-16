@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class Greeting {
 
+	String CSV_SPLIT_REGEX = "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+
 	public String greet(Object name) {
 		if (name instanceof String) {
 			return greetString((String) name);
@@ -77,12 +79,14 @@ public class Greeting {
 		if (objectList instanceof List<?>) {
 			for (Object object : (List<?>) objectList) {
 				if (object instanceof String) {
-					stringList.add(Arrays.asList(((String) object).split(",")));
+					stringList.add(Arrays.asList(((String) object).split("," + CSV_SPLIT_REGEX)));
 				}
 			}
 		}
 		return stringList.stream()
-				.flatMap(list -> list.stream().map(x -> x.replaceAll("\\s+", "")))
+				.flatMap(list -> list.stream().map(x -> x
+						.replaceAll("\\s+" + CSV_SPLIT_REGEX, "")
+						.replaceAll("\"", "")))
 				.collect(Collectors.toList());
 	}
 
