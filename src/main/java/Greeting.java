@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -72,15 +73,17 @@ public class Greeting {
 	}
 
 	private List<String> getListOfStringFromObject(final Object objectList) {
-		List<String> stringList = new ArrayList<>();
+		List<List<String>> stringList = new ArrayList<>();
 		if (objectList instanceof List<?>) {
 			for (Object object : (List<?>) objectList) {
 				if (object instanceof String) {
-					stringList.add((String) object);
+					stringList.add(Arrays.asList(((String) object).split(",")));
 				}
 			}
 		}
-		return stringList;
+		return stringList.stream()
+				.flatMap(list -> list.stream().map(x -> x.replaceAll("\\s+", "")))
+				.collect(Collectors.toList());
 	}
 
 }
