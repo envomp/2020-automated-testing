@@ -19,4 +19,14 @@ class GreetingTest {
         }
     }
 
+    @Test
+    public void greetGreetsWhenGivenNull() {
+        Greeting greeting = new Greeting();
+
+        String response = greeting.greet(null);
+
+        assertEquals("Hello, my friend.", response);
+
+    }
+
 }
