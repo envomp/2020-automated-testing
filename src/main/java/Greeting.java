@@ -29,7 +29,7 @@ public class Greeting {
 		return String.format("Hello, %s%s", name, ending);
 	}
 
-	public String greetMultiple(List<String> names) {
+	private String greetMultiple(List<String> names) {
 		if (names.size() == 0) {
 			return "Hello.";
 		}
