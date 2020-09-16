@@ -7,7 +7,12 @@ public class Greeting {
             name = "my friend";
         }
 
-        return String.format("Hello, %s.", name);
+        String ending = ".";
+        if (name.toUpperCase().equals(name)) {
+            ending = "!";
+        }
+
+        return String.format("Hello, %s%s", name, ending);
 
     }
 
