@@ -78,3 +78,4 @@ the string ```"Hello, Bob and Charlie, Dianne."```.
 - Watch or attend week 3 lecture LIVE
     - lecture on tdd, clean code, unit testing
     - guide for setting up development environment for practice excercise with Java
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
