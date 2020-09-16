@@ -1,5 +1,3 @@
-package ee.taltech.tdd;
-
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -45,7 +43,7 @@ class GreetingTest {
         List<String> names = List.of("a", "AaBb");
         Greeting greeting = new Greeting();
 
-        String response = greeting.greetMultiple(names);
+        String response = greeting.greet(names);
         assertEquals("Hello, a and AaBb.", response);
 
     }
@@ -56,7 +54,7 @@ class GreetingTest {
         List<String> names = List.of("a", "AaBb", "bB");
         Greeting greeting = new Greeting();
 
-        String response = greeting.greetMultiple(names);
+        String response = greeting.greet(names);
         assertEquals("Hello, a, AaBb and bB.", response);
 
     }
