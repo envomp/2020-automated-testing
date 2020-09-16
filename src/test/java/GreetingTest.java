@@ -59,4 +59,14 @@ class GreetingTest {
 
     }
 
+	@Test
+	public void greetGreetsAllWhenGivenListOfMoreThanTwoWithCaps() {
+		List<String> names = List.of("a", "A", "AaBb", "bB");
+		Greeting greeting = new Greeting();
+
+		String response = greeting.greet(names);
+		assertEquals("Hello, a, AaBb and bB. AND HELLO A!", response);
+
+	}
+
 }
