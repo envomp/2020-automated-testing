@@ -6,34 +6,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GreetingTest {
 
-    @Test
-    public void greetGreetsWhenGivenName() {
-        List<String> names = List.of("a", "AaBb", "AbC", "Kapsas Tühikuga");
-        Greeting greeting = new Greeting();
+	@Test
+	public void greetGreetsWhenGivenName() {
+		List<String> names = List.of("a", "AaBb", "AbC", "Kapsas Tühikuga");
+		Greeting greeting = new Greeting();
 
-        for (String name : names) {
-            String response = greeting.greet(name);
-            assertEquals(String.format("Hello, %s.", name), response);
-        }
-    }
+		for (String name : names) {
+			String response = greeting.greet(name);
+			assertEquals(String.format("Hello, %s.", name), response);
+		}
+	}
 
-    @Test
-    public void greetGreetsWhenGivenNull() {
-        Greeting greeting = new Greeting();
+	@Test
+	public void greetGreetsWhenGivenNull() {
+		Greeting greeting = new Greeting();
 
-        String response = greeting.greet(null);
+		String response = greeting.greet(null);
 
-        assertEquals("Hello, my friend.", response);
-    }
+		assertEquals("Hello, my friend.", response);
+	}
 
-    @Test
-    public void greetGreetsWhenGivenUppercase() {
-        Greeting greeting = new Greeting();
+	@Test
+	public void greetGreetsWhenGivenUppercase() {
+		Greeting greeting = new Greeting();
 
-        String response = greeting.greet("PEETER");
+		String response = greeting.greet("PEETER");
 
-        assertEquals("Hello, PEETER!", response);
-    }
+		assertEquals("Hello, PEETER!", response);
+	}
 
 	@Test
 	public void greetGreetsAllWhenGivenListOf1() {
@@ -44,24 +44,24 @@ class GreetingTest {
 		assertEquals("Hello, a.", response);
 	}
 
-    @Test
-    public void greetGreetsAllWhenGivenList() {
-        List<String> names = List.of("a", "AaBb");
-        Greeting greeting = new Greeting();
+	@Test
+	public void greetGreetsAllWhenGivenList() {
+		List<String> names = List.of("a", "AaBb");
+		Greeting greeting = new Greeting();
 
-        String response = greeting.greet(names);
-        assertEquals("Hello, a and AaBb.", response);
-    }
+		String response = greeting.greet(names);
+		assertEquals("Hello, a and AaBb.", response);
+	}
 
 
-    @Test
-    public void greetGreetsAllWhenGivenListOfMoreThanTwo() {
-        List<String> names = List.of("a", "AaBb", "bB");
-        Greeting greeting = new Greeting();
+	@Test
+	public void greetGreetsAllWhenGivenListOfMoreThanTwo() {
+		List<String> names = List.of("a", "AaBb", "bB");
+		Greeting greeting = new Greeting();
 
-        String response = greeting.greet(names);
-        assertEquals("Hello, a, AaBb and bB.", response);
-    }
+		String response = greeting.greet(names);
+		assertEquals("Hello, a, AaBb and bB.", response);
+	}
 
 	@Test
 	public void greetGreetsAllWhenGivenListOfMoreThanTwoWithCaps() {
@@ -79,6 +79,15 @@ class GreetingTest {
 
 		String response = greeting.greet(names);
 		assertEquals("Hello, a, AaBb, bB and Bb. AND HELLO A!", response);
+	}
+
+	@Test
+	public void greetGreetsAllWhenGivenListWithCSVFormat() {
+		List<String> names = List.of("a", "b", "\"AaBb, AAa\"");
+		Greeting greeting = new Greeting();
+
+		String response = greeting.greet(names);
+		assertEquals("Hello, a, b and AaBb, AAa.", response);
 	}
 
 }
