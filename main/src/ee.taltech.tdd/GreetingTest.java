@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GreetingTest {
 
     @Test
-    public void greetGreetsWithGivenName() {
+    public void greetGreetsWhenGivenName() {
         List<String> names = List.of("a", "AaBb", "AbC", "Kapsas Tühikuga");
         Greeting greeting = new Greeting();
 
@@ -36,6 +36,17 @@ class GreetingTest {
         String response = greeting.greet("PEETER");
 
         assertEquals("Hello, PEETER!", response);
+
+    }
+
+
+    @Test
+    public void greetGreetsAllWhenGivenList() {
+        List<String> names = List.of("a", "AaBb");
+        Greeting greeting = new Greeting();
+
+        String response = greeting.greet(names);
+        assertEquals("Hello, a and AaBb.", response);
 
     }
 
