@@ -50,4 +50,15 @@ class GreetingTest {
 
     }
 
+
+    @Test
+    public void greetGreetsAllWhenGivenListOfMoreThanTwo() {
+        List<String> names = List.of("a", "AaBb", "bB");
+        Greeting greeting = new Greeting();
+
+        String response = greeting.greetMultiple(names);
+        assertEquals("Hello, a, AaBb and bB.", response);
+
+    }
+
 }

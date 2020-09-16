@@ -18,9 +18,13 @@ public class Greeting {
     }
 
     public String greetMultiple(List<String> names) {
-        String ending = ".";
+        if (names.size() == 0) {
+            return "Hello?";
+        }
 
-        return String.format("Hello, %s%s", String.join(" and ", names), ending);
+        String ending = String.format(" and %s%s", names.get(names.size() - 1), ".");
+
+        return String.format("Hello, %s%s", String.join(", ", names.subList(0, names.size() - 1)), ending);
     }
 
 }
