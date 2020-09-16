@@ -45,7 +45,7 @@ class GreetingTest {
         List<String> names = List.of("a", "AaBb");
         Greeting greeting = new Greeting();
 
-        String response = greeting.greet(names);
+        String response = greeting.greetMultiple(names);
         assertEquals("Hello, a and AaBb.", response);
 
     }
