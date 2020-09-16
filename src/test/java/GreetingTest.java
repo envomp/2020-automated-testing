@@ -72,4 +72,13 @@ class GreetingTest {
 		assertEquals("Hello, a, AaBb and bB. AND HELLO A!", response);
 	}
 
+	@Test
+	public void greetGreetsAllWhenGivenListOfMoreThanTwoWithCapsAndCombinedNames() {
+		List<String> names = List.of("a", "A", "AaBb", "bB, Bb");
+		Greeting greeting = new Greeting();
+
+		String response = greeting.greet(names);
+		assertEquals("Hello, a, AaBb, bB and Bb. AND HELLO A!", response);
+	}
+
 }
