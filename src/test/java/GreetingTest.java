@@ -24,7 +24,6 @@ class GreetingTest {
         String response = greeting.greet(null);
 
         assertEquals("Hello, my friend.", response);
-
     }
 
     @Test
@@ -34,9 +33,16 @@ class GreetingTest {
         String response = greeting.greet("PEETER");
 
         assertEquals("Hello, PEETER!", response);
-
     }
 
+	@Test
+	public void greetGreetsAllWhenGivenListOf1() {
+		List<String> names = List.of("a");
+		Greeting greeting = new Greeting();
+
+		String response = greeting.greet(names);
+		assertEquals("Hello, a.", response);
+	}
 
     @Test
     public void greetGreetsAllWhenGivenList() {
@@ -45,7 +51,6 @@ class GreetingTest {
 
         String response = greeting.greet(names);
         assertEquals("Hello, a and AaBb.", response);
-
     }
 
 
@@ -56,7 +61,6 @@ class GreetingTest {
 
         String response = greeting.greet(names);
         assertEquals("Hello, a, AaBb and bB.", response);
-
     }
 
 	@Test
@@ -66,7 +70,6 @@ class GreetingTest {
 
 		String response = greeting.greet(names);
 		assertEquals("Hello, a, AaBb and bB. AND HELLO A!", response);
-
 	}
 
 }
