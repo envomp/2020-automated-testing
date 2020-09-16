@@ -10,7 +10,7 @@ class GreetingTest {
 
     @Test
     public void greetGreetsWithGivenName() {
-        List<String> names = List.of("A", "AABB", "Kapsas Tühikuga");
+        List<String> names = List.of("a", "AaBb", "AbC", "Kapsas Tühikuga");
         Greeting greeting = new Greeting();
 
         for (String name : names) {
@@ -26,6 +26,16 @@ class GreetingTest {
         String response = greeting.greet(null);
 
         assertEquals("Hello, my friend.", response);
+
+    }
+
+    @Test
+    public void greetGreetsWhenGivenUppercase() {
+        Greeting greeting = new Greeting();
+
+        String response = greeting.greet("PEETER");
+
+        assertEquals("Hello, PEETER!", response);
 
     }
 
