@@ -1,27 +1,25 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Greeting {
 
-	String CSV_SPLIT_REGEX = "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+	private static final String CSV_SPLIT_REGEX = "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
 
 	public String greet(Object name) {
 
 		if (name instanceof String) {
-			return greetString((String) name);
+			return getGreeting((String) name);
 		} else if (name == null) {
 			return "Hello, my friend.";
-		} else if (name instanceof Collection) {
-			return greetMultiple(getListOfStringFromObject(name));
+		} else if (name instanceof List) {
+			return getCombinedGreeting(getFormattedNames((List<?>) name));
 		}
 
 		return "Hello?";
 	}
 
-	private String greetString(String name) {
+	private String getGreeting(String name) {
 		String ending = ".";
 
 		if (isUppercase(name)) {
@@ -31,17 +29,17 @@ public class Greeting {
 		return String.format("Hello, %s%s", name, ending);
 	}
 
-	private String greetMultiple(List<String> names) {
+	private String getCombinedGreeting(List<String> names) {
 
 		if (names.size() == 0) {
 			return "Hello.";
 		}
 
 		return String.format("%s%s",
-				greetNoCaps(names.stream()
+				getLowercaseGreeting(names.stream()
 						.filter(x -> !isUppercase(x))
 						.collect(Collectors.toList())),
-				greetCaps(names.stream()
+				getUppercaseGreeting(names.stream()
 						.filter(this::isUppercase)
 						.collect(Collectors.toList())));
 	}
@@ -50,7 +48,7 @@ public class Greeting {
 		return x.toUpperCase().equals(x);
 	}
 
-	private String greetNoCaps(List<String> names) {
+	private String getLowercaseGreeting(List<String> names) {
 
 		if (names.size() == 0) {
 			return "";
@@ -64,7 +62,7 @@ public class Greeting {
 		return String.format("Hello, %s%s", String.join(", ", names.subList(0, names.size() - 1)), ending);
 	}
 
-	private String greetCaps(List<String> names) {
+	private String getUppercaseGreeting(List<String> names) {
 
 		if (names.size() == 0) {
 			return "";
@@ -78,19 +76,12 @@ public class Greeting {
 		return String.format(" AND HELLO %s%s", String.join(", ", names.subList(0, names.size() - 1)), ending);
 	}
 
-	private List<String> getListOfStringFromObject(final Object objectList) {
-		List<List<String>> stringList = new ArrayList<>();
-
-		if (objectList instanceof List<?>) {
-			stringList = ((List<?>) objectList)
-					.stream()
-					.filter(object -> object instanceof String)
-					.map(object -> Arrays.asList(((String) object)
-							.split("," + CSV_SPLIT_REGEX)))
-					.collect(Collectors.toList());
-		}
-
-		return stringList.stream()
+	private List<String> getFormattedNames(final List<?> names) {
+		return names
+				.stream()
+				.filter(object -> object instanceof String)
+				.map(object -> Arrays.asList(((String) object)
+						.split("," + CSV_SPLIT_REGEX)))
 				.flatMap(list -> list.stream().map(x -> x
 						.replaceAll("\\s+" + CSV_SPLIT_REGEX, "")
 						.replaceAll("\"", "")))
